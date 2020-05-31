@@ -31,8 +31,9 @@ const STREAM_URL = '/streams';
  * To create a new stream in JsonServer
  * @param {Object} formValues - Data of new stream
  */
-export const createStream = formValues => async dispatch => {
-  const response = await streams.post(STREAM_URL, formValues);
+export const createStream = formValues => async (dispatch, getState) => {
+  const { userId } = getState().auth;
+  const response = await streams.post(STREAM_URL, { ...formValues, userId });
 
   dispatch({ type: CREATE_STREAM, payload: response.data });
 };
