@@ -13,12 +13,18 @@ class StreamList extends React.PureComponent {
         if (stream.userId !== this.props.currentUserId) return null;
         return (
             <div className="right floated content">
-                <button className="ui button primary">
+                <Link
+                    to={`/streams/edit/${stream.id}`}
+                    className="ui button primary"
+                >
                     Edit
-                </button>
-                <button className="ui button negative">
+                </Link>
+                <Link
+                    to={`/streams/delete/${stream.id}`}
+                    className="ui button negative"
+                >
                     Delete
-                </button>
+                </Link>
             </div>
         )
     }
