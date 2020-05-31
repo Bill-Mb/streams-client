@@ -13,7 +13,7 @@ import {
 export const signIn = (userId) => {
   return {
     type: SIGN_IN,
-    paylod: userId,
+    payload: userId,
   };
 };
 
